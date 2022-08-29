@@ -48,7 +48,17 @@ void insertion_sort(int *collection, int count)
 
 void reverse(int *collection, int count)
 {
+    for (int i = 0; i < count; ++i) {
+        for (int j = count - 1; j >= 0; ++j) {
+            int temp = *(collection + i);
+            *(collection + i) = *(collection + j);
+            *(collection + j) = temp;
+        }
+    }
 
+    for (int k = 0; k < count; k++) {
+        printf("from reverse collection[%d] = %d\n", k, *(collection + k));
+    }
 }
 
 int calulate_frequency(int *collection, int count, int target)
