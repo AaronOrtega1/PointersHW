@@ -30,7 +30,20 @@ int bubble_sort(int *collection, int count)
 
 void insertion_sort(int *collection, int count)
 {
+    for (int i = 1; i < count; i++) {
+        int temp = collection[i];
+        int j = i - 1;
 
+        while (j >= 0 && *collection + j > temp) {
+            *(collection + (j + 1)) = *collection + j;
+            j = j - 1;
+        }
+        *(collection + (j + 1)) = temp;
+    }
+
+    for (int k = 0; k < count; k++) {
+        printf("from insertSort collection[%d] = %d\n", k, *(collection + k));
+    }
 }
 
 void reverse(int *collection, int count)
