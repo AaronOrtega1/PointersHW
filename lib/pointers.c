@@ -27,13 +27,13 @@ int bubble_sort(int *collection, int count)
 
 void insertion_sort(int *collection, int count)
 {
-    for (int i = 1; i < count; i++) {
+    for (int i = 1; i <= count; i++) {
         int temp = *(collection + i);
         int j = i - 1;
 
-        while (j >= 0 && *collection + j > temp) {
-            *(collection + (j + 1)) = *collection + j;
-            j = j - 1;
+        while (temp < *(collection + j) && j >= 0) {
+            *(collection + (j + 1)) = *(collection + j);
+            j--;
         }
         *(collection + (j + 1)) = temp;
     }
