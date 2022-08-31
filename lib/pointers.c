@@ -22,18 +22,13 @@ int bubble_sort(int *collection, int count)
             }
         }
     }
-
-    // imprimir los elementos despues de el ciclo dentro de la función (Solo para checar)
-    for (int k = 0; k < count; k++) {
-        printf("from bubbleSort collection[%d] = %d\n", k, *(collection + k));
-    }
     return swapMade;
 }
 
 void insertion_sort(int *collection, int count)
 {
     for (int i = 1; i < count; i++) {
-        int temp = collection[i];
+        int temp = *(collection + i);
         int j = i - 1;
 
         while (j >= 0 && *collection + j > temp) {
@@ -42,34 +37,20 @@ void insertion_sort(int *collection, int count)
         }
         *(collection + (j + 1)) = temp;
     }
-
-    for (int k = 0; k < count; k++) {
-        printf("from insertSort collection[%d] = %d\n", k, *(collection + k));
-    }
 }
 
 void reverse(int *collection, int count)
 {
-    for (int i = 0; i < count; ++i) {
-        for (int j = count - 1; j >= 0; ++j) {
-            int temp = *(collection + i);
-            *(collection + i) = *(collection + j);
-            *(collection + j) = temp;
-        }
+    int aux[count];
+    for (int i = 0; i < count; i++) {
+        aux[count - 1 - i] = *(collection + i);
     }
-
-    for (int k = 0; k < count; k++) {
-        printf("from reverse collection[%d] = %d\n", k, *(collection + k));
+    for (int i = 0; i < count; i++) {
+        *(collection + i) = aux[i];
     }
 }
 
 int calulate_frequency(int *collection, int count, int target)
 {
   return 0;
-}
-
-void printArray(int array[], int size) {
-    for (int i = 0; i < size; i++) {
-        printf("from printArray array[%d] = %d\n", i, array[i]);
-    }
 }
